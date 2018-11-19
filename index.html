@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Project Management</title>
+        <!-- Modify the logo of application what made form internet -->
+        <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+        
+        <!-- <script src="jquery-3.1.1.min.js"></script> -->
+        <!-- <script src="knockout-3.4.2.js"></script> -->
+        </script>
+      </head>
+
+      <body>
+        <div class="top_nav">  
+            <a href="index.html"> Home </a>     
+            <div class="top_right_nav">
+                <a data-toggle="modal" data-target="#login_modal"> Login</a>                    
+                <a data-toggle="modal" data-target="#sign_modal"> Signup </a>
+                <a data-toggle="modal" data-target="#help_modal"> Help </a>
+                <a data-toggle="modal" data-target="#about_modal" > About </a>
+            </div> 
+        </div>
+       
+        
+        <div class="main">
+            <h1>
+                This is a project management application.
+            </h1>
+            <!-- Create a modal for login form -->
+            <div id="login_modal" class="modal fade" role="dialog" >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <h1 class="cp"> Log in </h1>
+                        </div>
+                       
+                        <div class="modal-body">
+                        <form >
+                            <div class="form-group">              
+                                <label class="col-xs-4 label-size" for="userid">User Name</label>
+                                <input type="text" id="userid" data-bind="value: userid" placeholder="User Name" required>
+                            </div> 
+    
+                            <div class="form-group"> 
+                                <label class="col-xs-4 label-size" for="email">User Email</label>
+                                <input type="email" id="email" data-bind="value: email" placeholder="Email" required><br>
+                            </div>  
+                            <div class="form-group"> 
+                                <label class="col-xs-4 label-size" for="password">Password</label>
+                                <input type="password" id="password" placeholder="Password" data-bind="value: password" pattern=".*" required><br>
+                            </div>  
+                        </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" id = "lbtn" data-bind="click: $root.login()">Log in</button>
+                        </div>
+                        </div>
+                </div>
+            </div>
+            
+            <!-- Create a modal for signup form  -->
+            <div id="sign_modal" class="modal fade" role="dialog" >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h1 class="cp"> Sign up </h1>
+                        </div>
+                       
+                        <div class="modal-body">
+                        <form>
+                            <div class="form-group">              
+                                <label class="col-xs-4 label-size" for="suserid">User Name</label>
+                                <input type="text" id="suserid" data-bind="value: userid" placeholder="User Name" required>
+                            </div> 
+    
+                            <div class="form-group"> 
+                                <label class="col-xs-4 label-size" for="semail">User Email</label>
+                                <input type="email" id="semail" data-bind="value: email" placeholder="Email" required>
+                            </div>  
+                            <div class="form-group"> 
+                                <label class="col-xs-4 label-size" for="spassword">Password</label>
+                                <input type="password" id="spassword" placeholder="Password" data-bind="value: password" pattern=".*" required>
+                            </div> 
+                            <div class="form-group"> 
+                                <label class="col-xs-4 label-size" for="sconpassword">Confirm Password</label>
+                                <input type="password" id="sconpassword" placeholder="ConfirmPassword" data-bind="value:Confirm password" pattern=".*" required>
+                            </div> 
+                        </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" id = "sbtn" data-bind="click: $root.signup()">Sign up</button>
+                        </div>
+                        </div>
+                </div>
+            </div>
+             <!-- help modal -->
+             <div id="help_modal" class="modal fade" role="dialog" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h1 class="cp"> Help </h1>
+                    </div>
+                    
+                    <div class="modal-body">
+                    <form>
+                        <div>
+                           <h3>Welcome to the Project Management Application</h3> 
+                            <div class="alert alert-info" role="alert">
+                              <li> Fill the form to <kbd>Login</kbd> </li> 
+                               <li> If users do not regrester, click <kbd>Sign up</kbd>to register first</li>
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                                <li>Admins could <kbd>create</kbd> new users or projects </li> 
+                               <li>In addition, admins could click corresponding button to <kbd>modify</kbd> 
+                                   any attributes of users and projects and <kbd>delete</kbd> users and projects</li> 
+                               <li>Admins also could <kbd>search</kbd> projects based on their project name </li>
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                                <li>Managers could <kbd>create</kbd> and <kbd>search</kbd> new projects</li>
+                                <li>Moreover, managers could <kbd>modify</kbd> any attributs of projects and 
+                                    <kbd>delete</kbd> projects</li>
+                            </div>
+                            <div class="alert alert-warning" role="alert">
+                                <li>Developers could only <kbd>show</kbd> their basic information and the 
+                                    information of project  </li>
+                            </div>
+                        </div>  
+                    </form>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+            <!-- about modal -->
+             <div id="about_modal" class="modal fade" role="dialog" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h1 class="cp"> About </h1>
+                    </div>
+                    
+                    <div class="modal-body">
+                    <form>
+                        <div>
+                            <h3>Welcome to the Project Management Application</h3> 
+                            <div class="alert alert-secondary" role="alert" >
+                                Thank you for using this Project Management Application. <br>
+                                Pleasr feel free to sent us your questions. <br>
+                            </div>
+                            <div class="alert alert-primary" role="alert">
+                                Developer: Siying Zhang (30542731) <br>
+                                Email: sz3y18@soton.ac.uk
+                            </div>
+                        </div>  
+                    </form>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+      </body>
+    <script src="main.js"></script>
+
+</html>

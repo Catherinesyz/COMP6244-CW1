@@ -1,0 +1,106 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+  background-color: #A9B7BE;
+
+}
+
+/* Create a top and fiexed navbar */
+.top_nav {
+   /* #5E90B8 */
+  background-color: black;
+  font-weight: bold;
+  position: fixed;
+  /* text-align: center; */
+  width: 100%;
+  top: 0;
+  overflow: auto;
+  font-size: 30px;
+}
+
+.top_nav a {
+  color: white;
+  width: 100%;
+  padding: 30px 30px;
+}
+
+.top_nav a:hover {
+  background-color: #CCD2D2;
+  color: black;
+}
+
+.top_right_nav{
+  float: right;
+  top: 0;
+}
+
+h1 {
+  position: relative;
+  top:35px;
+  left: 30px;
+}
+
+.main{
+  position: relative;
+  top: 20px;
+  left: 10px;
+}
+
+.cp {
+  text-align: center;
+  top: 0;
+  left: 10px;
+}
+
+input[type=text], input[type=password], input[type=email] { 
+  width: 70%; 
+  padding: 12px 20px; 
+  margin: 8px 0; 
+  display: inline-block; 
+  border: 1px solid rgb(204, 204, 204); 
+  font-size: 15px;
+} 
+
+button { 
+  width: 100%; 
+  background-color: #399EB7; 
+  color: white; 
+  padding: 14px 20px; 
+  margin: 8px 0; 
+  font-size: 25px;
+  border: none;   
+} 
+
+button:hover { 
+  opacity: 0.9; 
+} 
+
+label.label-primary {
+  width: 80%;
+}
+
+.btn.btn-primary.btn-lg.btn-block {
+  position: relative;
+  background-attachment: #399EB7;
+  width: 90%;
+  top: 40px;
+  left: 40px;
+}
+
+.modal-dialog .modal.fade .modal-content{
+  background: #A9B7BE !important;
+  position: absolute;
+   top: 80px;
+  left: 140px; 
+  width: 80%;
+  height: 80%; 
+}
+.card {
+  position: relative;
+  top: 60px;
+  left: 40px;
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Project Management</title>
+        <!-- Modify the logo of application what made form internet -->
+        <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.358.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="mngproj.css">
+        <!-- <script type='text/javascript' src='http://knockoutjs.com/downloads/knockout-3.2.0.js'></script> -->
+        <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+        <!-- <script src="jquery-3.1.1.min.js"></script> -->
+        <script src="knockout-3.4.2.js"></script>
+      </head>
+
+      <body>
+        <div class="top_nav">  
+            <a href="index.html"> Home </a>     
+            <div class="top_right_nav">
+                <a href="index.html"> Logout</a>   
+                <a data-toggle="modal" data-target="#help_modal"> Help </a>
+                <a data-toggle="modal" data-target="#about_modal"> About </a>
+            </div> 
+        </div>
+        
+        <h1> Projects</h1> 
+            <!-- button of create and search -->
+            <div class="list-project">
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-6">
+                            <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#create-proj"> Create a Project</button>
+                        </div>
+                        <div class="col-xs-8 col-sm-6">
+                            <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#search-proj"> Search  a Project</button>
+                        </div> 
+                    </div>
+            </div>
+             <!-- create project modal -->
+            <div >   
+            <div id="create-proj" class="modal fade" role="dialog" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h1 class="cp"> Create a Project </h1>
+                    </div>
+                   
+                    <div class="modal-body">
+                    
+                        <div class="form-group">              
+                            <label class="col-xs-4 label-size" for="ProjId">Project Name</label>
+                            <input type="text" id="ProjId" data-bind="value: projid" placeholder="Project Name" required>
+                        </div> 
+
+                        <div class="form-group"> 
+                            <label class="col-xs-4 label-size" for="DueTm">Due Time</label>
+                            <input type="text" id="DueTm" data-bind="value: duetm" placeholder="Due Time: DD/MM/YEAR" required>
+                        </div>  
+                        <div class="form-group"> 
+                            <label class="col-xs-4 label-size" for="MangId">Manager ID</label>
+                            <input type="text" id="MangId" data-bind="value: mangid" placeholder="Manager ID" required>
+                        </div>  
+                        <div class="form-group"> 
+                            <label class="col-xs-4 label-size" for="DevId1">Developer 1</label>
+                            <input type="text" id="DevId1" data-bind="value: dev1" placeholder="Developer1 Name" required>
+                        </div>  
+                        <div class="form-group">    
+                            <label class="col-xs-4 label-size" for="DevId2">Developer 2</label>
+                            <input type="text" id="DevId2" data-bind="value: dev2" placeholder="Developer2 Name" required>
+                        </div>  
+                        <div class="form-group"> 
+                            <label class="col-xs-4 label-size" for="DevId3">Developer 3</label>
+                            <input type="text" id="DevId3" data-bind="value: dev3" placeholder="Developer3 Name" required>
+                        </div>  
+                    
+                        <div class="input-group mb-3">
+                            <label class="col-xs-4 label-size" for="custom-select">Project Status</label>                      
+                            <select class="custom-select" data-bind="value: pstatus" id="proj-status">
+                               
+                                <option value="active">Active</option>
+                                <option value="pending">Pending</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
+                
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id = "crt-btn" data-bind="click: $root.createproj()"  >Create</button>
+                       
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- search a project modal -->
+        <div>   
+            <div id="search-proj" class="modal fade" role="dialog" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h1 class="cp"> Search a Project </h1>
+                    </div>
+                    
+                    <div class="modal-body">
+                    
+                        <div class="form-group">              
+                            <label class="col-xs-4 label-size" for="ProjId">Project Name</label>
+                            <input type="text" id="ProjId" data-bind="value: projid" placeholder="Project Name" required>
+                        </div>
+                
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id = "sbtn" data-bind="click: $root.searchproj()"  >Search</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- show the project information -->
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Project ID</h4>
+                <p class="card-text">Some example text. Some example text.</p>
+                <a href="#" class="card-link">Modify Project</a>
+                <a href="#" class="card-link">Delete Project</a>
+            </div>
+        </div>
+         <!-- help modal -->
+         <div id="help_modal" class="modal fade" role="dialog" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h1 class="cp"> Help </h1>
+                    </div>
+                    
+                    <div class="modal-body">
+                    <form>
+                        <div>
+                           <h3>Welcome to the Project Management Application</h3> 
+                            <div class="alert alert-info" role="alert">
+                              <li> Fill the form to <kbd>Login</kbd> </li> 
+                               <li> If users do not regrester, click <kbd>Sign up</kbd>to register first</li>
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                                <li>Admins could <kbd>create</kbd> new users or projects </li> 
+                               <li>In addition, admins could click corresponding button to <kbd>modify</kbd> 
+                                   any attributes of users and projects and <kbd>delete</kbd> users and projects</li> 
+                               <li>Admins also could <kbd>search</kbd> projects based on their project name </li>
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                                <li>Managers could <kbd>create</kbd> and <kbd>search</kbd> new projects</li>
+                                <li>Moreover, managers could <kbd>modify</kbd> any attributs of projects and 
+                                    <kbd>delete</kbd> projects</li>
+                            </div>
+                            <div class="alert alert-warning" role="alert">
+                                <li>Developers could only <kbd>show</kbd> their basic information and the 
+                                    information of project  </li>
+                            </div>
+                        </div>  
+                    </form>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+            <!-- about modal -->
+            <div id="about_modal" class="modal fade" role="dialog" >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <h1 class="cp"> About </h1>
+                        </div>
+                        
+                        <div class="modal-body">
+                        <form>
+                            <div>
+                                <h3>Welcome to the Project Management Application</h3> 
+                                <div class="alert alert-secondary" role="alert" >
+                                    Thank you for using this Project Management Application. <br>
+                                    Pleasr feel free to sent us your questions. <br>
+                                </div>
+                                <div class="alert alert-primary" role="alert">
+                                    Developer: Siying Zhang (30542731)
+                                    Email: sz3y18@soton.ac.uk
+                                </div>
+                            </div>  
+                        </form>
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>
+      </body>
+      
+    
+    <script type="text/javascript" src="mngproj.js"></script>
+    <!-- <script src="jquery-3.1.1.min.js"></script> -->
+     
+</html>
