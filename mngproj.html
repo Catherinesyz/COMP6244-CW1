@@ -38,12 +38,10 @@
                             <input class="_search" id="myInput" type="text" placeholder="Search (Project Name) ">
                         </div>
                         <div class="col-4 ">
-                            <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#search-proj"> Search  a Project</button>
+                            <button class="btn btn-primary btn-lg btn-block" id = "sbtn"> Search  a Project</button>
                         </div>
                         
                 </div>
-                 
-                <a href="modify.html?project=yy"> mo </a>  
             
              <!-- create project modal -->
             <div >   
@@ -97,15 +95,14 @@
                 
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" id = "crt-btn" data-bind="click: $root.createproj()"  >Create</button>
+                        <button type="submit" id = "crt-btn"   >Create</button>
                        
                     </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- search a project -->
-       
+        
         <!-- show all the project information -->
         <table id = "_show" class="table table-bordered table-striped">
             <thead>
