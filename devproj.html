@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="mngproj.css">
-        <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+        <link rel="stylesheet" type="text/css" href="devproj.css">
+
       </head>
 
       <body>
@@ -23,34 +23,38 @@
         </div>
         
         <h1> Projects</h1> 
-            <!-- button of create and search -->
-            <div class="list-project">
-                    <div class="row">
-                        <div class="col-xs-8 col-sm-6">
-                            <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#showinfo"> Show Infomation</button>
-                        </div> 
-                    </div>
-            </div>
-             
-            
-        
-        <!-- show the project information -->
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Project ID</h4>
-                <p class="card-text">Some example text. Some example text.</p>
-                <a href="#" class="card-link">Modify Project Status</a>
-            </div>
-        </div>
+            <!-- show projects -->
+            <div class="col-xs-8 col-sm-6">
+                
+                <button class="btn btn-primary btn-lg btn-block" id = "sbtn" > Show Projects</button>
+            </div> 
+        <!-- show all the project information -->
+        <table id = "_show" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Due Time</th>
+                    <th>Manager</th>
+                    <th>Developer1</th>
+                    <th>Developer2</th>
+                    <th>Developer3</th>
+                    <th>Project Status</th>
+                </tr>
+            </thead>
+            <tbody id="showTable">
+                
+            </tbody>
+        </table>
+
         <!-- help modal -->
-         <div id="help_modal" class="modal fade" role="dialog" >
+        <div id="help_modal" class="modal fade" role="dialog" >
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
                         <h1 class="cp"> Help </h1>
-                </div>
+              </div>
                 
                 <div class="modal-body">
                 <form>
@@ -58,22 +62,20 @@
                         <h3>Welcome to the Project Management Application</h3> 
                         <div class="alert alert-info" role="alert">
                             <li> Fill the form to <kbd>Login</kbd> </li> 
-                            <li> If users do not regrester, click <kbd>Sign up</kbd>to register first</li>
+                            <li> Only admins could click <kbd>Create a User</kbd>to create an account for employees</li>
                         </div>
                         <div class="alert alert-danger" role="alert">
-                            <li>Admins could <kbd>create</kbd> new users or projects </li> 
+                            <li>Admins could <kbd>Create</kbd> new users or projects </li> 
                             <li>In addition, admins could click corresponding button to <kbd>modify</kbd> 
-                                any attributes of users and projects and <kbd>delete</kbd> users and projects</li> 
-                            <li>Admins also could <kbd>search</kbd> projects based on their project name </li>
+                                any attributes of users and projects excepyt their names</li> 
+                            <li>Admins also could <kbd>search</kbd> projects and users based on their names </li>
                         </div>
                         <div class="alert alert-success" role="alert">
-                            <li>Managers could <kbd>create</kbd> and <kbd>search</kbd> new projects</li>
-                            <li>Moreover, managers could <kbd>modify</kbd> any attributs of projects and 
-                                <kbd>delete</kbd> projects</li>
+                            <li>Managers could <kbd>create</kbd> and <kbd>search</kbd> projects</li>
+                            <li>Moreover, managers could <kbd>modify</kbd> any attributs of projects based on their names</li>
                         </div>
                         <div class="alert alert-warning" role="alert">
-                            <li>Developers could only <kbd>show </kbd>their basic information and the 
-                                information of project  </li>
+                            <li>Developers could only <kbd>show</kbd> and  <kbd> Modify </kbd> their basic information </li>
                         </div>
                     </div>  
                 </form>
@@ -112,7 +114,5 @@
             </div>
         </div>
       </body>
-    <script src="main.js"></script>
-    <!-- <script src="jquery-3.1.1.min.js"></script> -->
-    <script src="knockout-3.4.2.js"></script>
+    <script src="devproj.js"></script>
 </html>

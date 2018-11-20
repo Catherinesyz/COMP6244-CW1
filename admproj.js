@@ -1,3 +1,16 @@
+/* *****************************************************************
+ * 
+ *  This javascript file is for admproj.html that is the homepage 
+ *      of 'adminx'
+ *  The main functions are create and search a project, create and
+ *   search a user and modify information about users
+ *  Show the information about projects and allow admins to modify
+ *      any attributes of projects
+ * 
+ * writen by Siying, zhang (sz3y18)
+ * 
+ * *****************************************************************/ 
+
 $(document).ready(function(){
     
     //Create a project
@@ -49,22 +62,20 @@ $(document).ready(function(){
 
     //Search a user
  
-    $("#ubtn").click(function(){
+    $("#subtn").click(function(){
         
-        $.get('https://xf8mksg4f9.execute-api.eu-west-2.amazonaws.com/dev/modifyuser', 
+        $.get('https://7sfzd9pye2.execute-api.eu-west-2.amazonaws.com/dev/modifyuser', 
         { 
             "User": $('#usInput').val()
         }, 
         function(data, status){
-            
-                    alert("Data: ");
-                if(data)
-                {
-                    $(location).attr('href', 'modifyuser.html?user='+data.Item.User);
-                }
-                else {
-                    alert("error: ");
-                }
+            if(data)
+            {
+                $(location).attr('href', 'modifyuser.html?user='+data.Item.User);
+            }
+            else {
+                alert("error: ");
+            }
             
         });
         
@@ -89,7 +100,7 @@ $(document).ready(function(){
                 
             });
             
-            });          
+        });          
     });
 
     // show the information about projects

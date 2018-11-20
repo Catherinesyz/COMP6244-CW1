@@ -10,9 +10,11 @@ body {
 
 /* Create a top and fiexed navbar */
 .top_nav {
+   /* #5E90B8 */
   background-color: black;
   font-weight: bold;
   position: fixed;
+  /* text-align: center; */
   width: 100%;
   top: 0;
   overflow: auto;
@@ -35,14 +37,28 @@ body {
   top: 0;
 }
 
-.main{
-  position: absolute;
-  top: 50%;
-  left: 28%;
+h1 {
+  position: relative;
+  top:35px;
+  left: 30px;
 }
 
+.main{
+  position: relative;
+  top: 20px;
+  left: 10px;
+}
+
+.cp {
+  text-align: center;
+  top: 0;
+  left: 10px;
+}
+
+
+
 input[type=text], input[type=password], input[type=email] { 
-  width: 60%; 
+  width: 70%; 
   padding: 12px 20px; 
   margin: 8px 0; 
   display: inline-block; 
@@ -57,11 +73,27 @@ button {
   padding: 14px 20px; 
   margin: 8px 0; 
   font-size: 25px;
-  border: none; 
-  
+  border: none;   
 } 
 
 button:hover { 
   opacity: 0.9; 
 } 
+
+label.label-primary {
+  width: 80%;
+}
+
+.row.justify-content-end {
+  position: relative;
+  left: 400px;
+}
+
+.btn.btn-primary.btn-lg.btn-block, ._searchp, ._searchu  {
+  position: relative;
+  background-attachment: #399EB7;
+  width: 70%; 
+   left:200px;
+}
+
 
