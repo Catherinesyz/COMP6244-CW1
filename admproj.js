@@ -29,25 +29,67 @@ $(document).ready(function(){
     });
 
     //Search a project
-    $("#search-proj").click(function(){
-       
-        $("#sbtn").click(function(){
-            
+    $("#pbtn").click(function(){
+     
             $.get('https://jl53shwlhj.execute-api.eu-west-2.amazonaws.com/dev/searchproj', 
             { 
-                "Project": $('#sProjId').val()
+                "Project": $('#myInput').val()
             }, 
-            function(data, status){
+            function(data){
                 
                  //   alert("Data: " + data.Item.Project + "\nStatus: " + status);
                  if(data)
                  {
-
+                    $(location).attr('href', 'modify.html?project='+data.Item.Project);
                  }
                 
             });
+               
+    });
+
+    //Search a user
+ 
+    $("#ubtn").click(function(){
+        
+        $.get('https://xf8mksg4f9.execute-api.eu-west-2.amazonaws.com/dev/modifyuser', 
+        { 
+            "User": $('#usInput').val()
+        }, 
+        function(data, status){
             
-        });          
+                    alert("Data: ");
+                if(data)
+                {
+                    $(location).attr('href', 'modifyuser.html?user='+data.Item.User);
+                }
+                else {
+                    alert("error: ");
+                }
+            
+        });
+        
+    });          
+    
+    //Create a user
+    $("#create-user").click(function(){
+       
+        $("#cubtn").click(function(){
+            var i = 0;
+            $.get('https://s904yw1096.execute-api.eu-west-2.amazonaws.com/dev/addusers', 
+            { 
+                "User": $('#suserid').val(), 
+                "Email": $('#semail').val(),
+                "Password": $('#spassword').val(),
+                "Role": $('#u-role').val()
+            }, 
+            function(data, status){
+                if (data){
+                    
+                }
+                
+            });
+            
+            });          
     });
 
     // show the information about projects
@@ -94,32 +136,7 @@ $(document).ready(function(){
             a.href="modify.html?project=" + data.Items[i].Project;
             r.appendChild(a);
             
-            var a = document.createElement("a");
-            a.innerHTML = " Delete";
-            a.href="";
-            a.id = "dlt";
-            $("#dlt").click(function(){
-                //a.click = function() {
-                    
-                    alert(data.Items[0].Project);
-                    //this.style.display = 'hide';
-                    $.get('https://si68rvio0a.execute-api.eu-west-2.amazonaws.com/dev/deleteproj', 
-                    { 
-                        "Project" : data.Items[0].Project
-                    },
-                       function(data){
-                           if(data) {
-                                alert("Successfully Delete the Project!");
-                           }
-                            else {
-                                alert("Cannot Delete!");
-                            }
-                       } 
-                    )
-                    alert("11");
-                    
-            });
-            //end click
+            
             r.appendChild(a);
             
             t.appendChild(r);

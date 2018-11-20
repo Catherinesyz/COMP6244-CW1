@@ -19,7 +19,7 @@ $(document).ready(function() {
                 "Email": $('#email').val(),
                 "Password": $('#password').val()  
             }, 
-            function(data, status){
+            function(data){
                 if (data){
                     if(data.Item.Role == "Developer"){
                         window.location.href = "devproj.html";

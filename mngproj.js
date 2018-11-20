@@ -1,10 +1,14 @@
-/* ************************************************************
+/* *****************************************************************
  * 
- * This javascript file is for mngproj.html that is the homepage 
- *  of this application
+ *  This javascript file is for mngproj.html that is the homepage 
+ *      of 'managers'
+ *  The main functions are create and search a project
+ *  Show the information about projects and allow managers to modify
+ *      any attributes of projects
+ * 
  * writen by Siying, zhang (sz3y18)
  * 
- * ************************************************************/ 
+ * *****************************************************************/ 
 
 
 

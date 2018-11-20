@@ -89,18 +89,11 @@ label.label-primary {
   left: 400px;
 }
 
-.btn.btn-primary.btn-lg.btn-block {
+.btn.btn-primary.btn-lg.btn-block,  input[type=text] {
   position: relative;
   background-attachment: #399EB7;
   width: 70%; 
-   
+   left:200px;
 }
 
-.modal-dialog .modal.fade .modal-content{
-  background: #A9B7BE !important;
-  position: absolute;
-   top: 80px;
-  left: 140px; 
-  width: 80%;
-  height: 80%; 
-}
+
