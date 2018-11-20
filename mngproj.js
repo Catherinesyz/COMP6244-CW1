@@ -9,93 +9,114 @@
 
 
 $(document).ready(function(){
-    
+  
+    var i = 0;
+    //Create a project
     $("#create-proj").click(function(){
        
         $("#crt-btn").click(function(){
-            //var bla = $('#DueTm').val();
-            $.get('https://9qodk0jdqi.execute-api.eu-west-2.amazonaws.com/dev/addproject', 
+            
+            $.get('https://ibcsv2xy6j.execute-api.eu-west-2.amazonaws.com/dev/addproject', 
             { 
-                "projid": $('#ProjId').val(), 
-                "duetm": $('#DueTm').val(),
-                "mangid": $('#MangId').val(),
-                "dev1": $('#DevId1').val(),
-                "dev2": $('#DevId2').val(),
-                "dev3": $('#DevId3').val(),
-                "pstatus": $('#proj-status').val(),
-           
-        // });
-            // var view = function() {
-                // var self = this;
-                // //frontend data
-                // self.projid = ko.observable("");
-                // //self.duetm = ko.observable("");
-                // self.duetm = bla;
-                // self.mangid = ko.observable("");
-                // self.dev1 = ko.observable("");
-                // self.dev2 = ko.observable("");
-                // self.dev3 = ko.observable("");
-                // self.pstatus = ko.observable("");
+                "Project": $('#ProjId').val(), 
+                "DueTime": $('#DueTm').val(),
+                "Manager": $('#MangId').val(),
+                "Developer1": $('#DevId1').val(),
+                "Developer2": $('#DevId2').val(),
+                "Developer3": $('#DevId3').val(),
+                "Pstatus": $('#proj-status').val()
+            }, 
+            function(data, status){
+                if (data){
+                    i++;
+                }
+                if(i == 7){
+                    alert("Data: " + data.Items[0].Project + "\nStatus: " + status);
+                }
                 
-                // self.createproj = function () {  
-                //     alert(self.pstatus());  
-                //     alert(selp.duetm);
-                    
-                    // $.ajax({
-                    //     url: 'https://9qodk0jdqi.execute-api.eu-west-2.amazonaws.com/dev/addproject',
-                    //     cache: false,
-                    //     type: 'GET',  
-                    //     //get the data from frontend to lambda (lanbda:para)                
-                    //     data: { 
-                    //         "projid": self.projid(),
-                    //         "duetm": self.duetm(),
-                    //         "mangid": self.mangid(),
-                    //         "dev1": self.dev1(),
-                    //         "dev2": self.dev2(),
-                    //         "dev3": self.dev3(),
-                    //         "pstatus": self.pstatus()
-                    //     },
-                        success: function (data) {              
-                            if(data!=null){
-                                //window.location.href="index.html";
-                            }
-                            
-                        },
-                        error: function(data){
-                            alert('1');
-                        }
-                    });
-                    // $.ajax({
-                    //     url: 'https://9qodk0jdqi.execute-api.eu-west-2.amazonaws.com/dev/addproject',
-                    //     type: 'POST',
-                    //     dataType: 'jsonp',
-                    //     data: 
-                    //     jQuery.param({ 
-                    //         "projid": $('#ProjId').val(), 
-                    //             "duetm": $('#DueTm').val(),
-                    //             "mangid": $('#MangId').val(),
-                    //             "dev1": $('#DevId1').val(),
-                    //             "dev2": $('#DevId2').val(),
-                    //             "dev3": $('#DevId3').val(),
-                    //             "pstatus": $('#proj-status').val()}) ,
-                           
-                    //     contentType: 'application/json',
-                    //     success: function (response) {
-                    //         alert(response.status);
-                    //     },
-                    //     error: function () {
-                    //         alert("error");
-                    //     }
-                    // });
-                
-                // }
-        //     }
-        //     var viewModel = new view();
-        //     ko.applyBindings(viewModel);
-          });
+            });
+            
+            });          
     });
- 
+
+    //Search a project
+    $("#search-proj").click(function(){
+       
+        $("#sbtn").click(function(){
+            
+            $.get('https://jl53shwlhj.execute-api.eu-west-2.amazonaws.com/dev/searchproj', 
+            { 
+                "Project": $('#sProjId').val()
+            }, 
+            function(data, status){
+                
+                 //   alert("Data: " + data.Item.Project + "\nStatus: " + status);
+                 if(data)
+                 {
+
+                 }
+                // show the result(project) of search
+                var d1 = document.getElementById("show_proj");
+                d1.setAttribute("class", "col-xs-8 col-sm-6");
+
+                var d2 = document.createElement("div");
+                d2.setAttribute("class", "card");
+
+                var d3 = document.createElement("div");
+                d3.setAttribute("class", "card-body");
+
+                var h4 = document.createElement("h4");
+                h4.setAttribute("class", "card-title");
+
+                var d4 = document.createElement("div");
+                d4.id = "pid";
+                d4.innerHTML = data.Item.Project;
+
+                //var p1 = document.createElement
+                d4.appendChild(d4);
+                d3.appendChild(h4);
+                d2.appendChild(d3);
+                d1.appendChild(d2);
+
+                
+            });
+            
+        });          
+    });
+
+    // show the information about projects
+    $.get('https://3mylc2m0p9.execute-api.eu-west-2.amazonaws.com/dev/projectdetails', 
+    { 
+    }, 
+    function(data) {
+        alert(data.Items[6].DueTime);
+        var t = document.getElementById("showTable");
+
+        for (var i = 0; i < data.Items.length; i++)
+        {
+            var r = document.createElement("tr");
+            
+            var d1 = document.createElement("td");
+            d1.innerHTML(data.Items[i].Project);
+            d1.crea
+            r.appendChild(d1);
+
+            var d2 = document.createElement("td");
+            d2.innerHTML(data.Items[i].DueTime);
+            r.appendChild(d2);
+
+            var d3 = document.createElement("td");
+            d3.innerHTML(data.Items[i].Developer1);
+            r.appendChild(d3);
+            
+            
+            t.appendChild(r);
+            
+        }
+    }
+    );
    
          
 });
+
 

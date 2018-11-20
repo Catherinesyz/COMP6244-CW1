@@ -6,7 +6,6 @@ html, body {
 
 body {
   background-color: #A9B7BE;
-
 }
 
 /* Create a top and fiexed navbar */
@@ -56,6 +55,8 @@ h1 {
   left: 10px;
 }
 
+
+
 input[type=text], input[type=password], input[type=email] { 
   width: 70%; 
   padding: 12px 20px; 
@@ -83,12 +84,16 @@ label.label-primary {
   width: 80%;
 }
 
+.row.justify-content-end {
+  position: relative;
+  left: 400px;
+}
+
 .btn.btn-primary.btn-lg.btn-block {
   position: relative;
   background-attachment: #399EB7;
-  width: 90%;
-  top: 40px;
-  left: 40px;
+  width: 70%; 
+   
 }
 
 .modal-dialog .modal.fade .modal-content{
@@ -98,9 +103,4 @@ label.label-primary {
   left: 140px; 
   width: 80%;
   height: 80%; 
-}
-.card {
-  position: relative;
-  top: 60px;
-  left: 40px;
 }

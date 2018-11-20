@@ -121,8 +121,15 @@
                             <input type="password" id="spassword" placeholder="Password" data-bind="value: password" pattern=".*" required>
                         </div> 
                         <div class="form-group"> 
-                            <label class="col-xs-4 label-size" for="sconpassword">Confirm Password</label>
-                            <input type="password" id="sconpassword" placeholder="ConfirmPassword" data-bind="value:Confirm password" pattern=".*" required>
+                            <div class="input-group mb-3">
+                                <label class="col-xs-4 label-size" for="custom-select">Role</label>                      
+                                <select class="custom-select" data-bind="value: pstatus" id="proj-status">
+                                    
+                                    <option value="admin">Admin</option>
+                                    <option value="manager">Manager</option>
+                                    <option value="developer">Developer</option>
+                                </select>
+                            </div>
                         </div> 
                     </form>
                     </div>

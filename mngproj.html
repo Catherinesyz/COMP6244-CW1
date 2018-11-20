@@ -28,16 +28,23 @@
         
         <h1> Projects</h1> 
             <!-- button of create and search -->
-            <div class="list-project">
-                    <div class="row">
-                        <div class="col-xs-8 col-sm-6">
+            <!-- <div class="list-project"> -->
+            
+                <div class="row justify-content-end">
+                        <div class="col-4 ">
                             <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#create-proj"> Create a Project</button>
                         </div>
-                        <div class="col-xs-8 col-sm-6">
+                        <div class="col-4 ">
+                            <input class="_search" id="myInput" type="text" placeholder="Search (Project Name) ">
+                        </div>
+                        <div class="col-4 ">
                             <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#search-proj"> Search  a Project</button>
-                        </div> 
-                    </div>
-            </div>
+                        </div>
+                        
+                </div>
+                 
+                <a href="modify.html?project=yy"> mo </a>  
+            
              <!-- create project modal -->
             <div >   
             <div id="create-proj" class="modal fade" role="dialog" >
@@ -97,42 +104,27 @@
                 </div>
             </div>
         </div>
-        <!-- search a project modal -->
-        <div>   
-            <div id="search-proj" class="modal fade" role="dialog" >
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h1 class="cp"> Search a Project </h1>
-                    </div>
-                    
-                    <div class="modal-body">
-                    
-                        <div class="form-group">              
-                            <label class="col-xs-4 label-size" for="ProjId">Project Name</label>
-                            <input type="text" id="ProjId" data-bind="value: projid" placeholder="Project Name" required>
-                        </div>
+        <!-- search a project -->
+       
+        <!-- show all the project information -->
+        <table id = "_show" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Due Time</th>
+                    <th>Manager</th>
+                    <th>Developer1</th>
+                    <th>Developer2</th>
+                    <th>Developer3</th>
+                    <th>Project Status</th>
+                    <th>Modify</th>
+                </tr>
+            </thead>
+            <tbody id="showTable">
                 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" id = "sbtn" data-bind="click: $root.searchproj()"  >Search</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- show the project information -->
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Project ID</h4>
-                <p class="card-text">Some example text. Some example text.</p>
-                <a href="#" class="card-link">Modify Project</a>
-                <a href="#" class="card-link">Delete Project</a>
-            </div>
-        </div>
+            </tbody>
+        </table>
+        
          <!-- help modal -->
          <div id="help_modal" class="modal fade" role="dialog" >
                 <div class="modal-dialog" role="document">
