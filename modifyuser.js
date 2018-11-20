@@ -7,7 +7,7 @@
  * 
  * ************************************************************/ 
 
-$(document).ready(function(){alert('function');
+$(document).ready(function(){
 
     var get_url = window.location.search.substring(1);
     var sp = get_url.split("&");

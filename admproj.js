@@ -29,10 +29,8 @@ $(document).ready(function(){
                 "Pstatus": $('#proj-status').val()
             }, 
             function(data, status){
-                if (data){
-                    i++;
-                }
-                if(i == 7){
+                if (data.Item.Project){
+                    
                     alert("Successfully Create a Project");
                 }
                 
@@ -71,7 +69,8 @@ $(document).ready(function(){
         function(data, status){
             if(data)
             {
-                $(location).attr('href', 'modifyuser.html?user='+data.Item.User);
+               
+                $(location).attr('href', 'modifyuser.html?user=' + data.Item.User);
             }
             else {
                 alert("error: ");
